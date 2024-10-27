@@ -11,8 +11,7 @@ Resources:
           - Effect: Allow
             Resource: "*"
             Action:
-              - "ecr:BatchGetImage"
-              - "ecr:BatchDeleteImage"
+              - "ec2:DescribeInstances"
 Outputs:
   PolicyArn:
     Value: !GetAtt CSPMManagedPolicy.PolicyArn
