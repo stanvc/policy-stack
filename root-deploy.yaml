@@ -1,0 +1,4 @@
+template-file-path: root.yaml
+parameters:
+  RoleName: cstan
+tags: {}
