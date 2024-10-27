@@ -12,6 +12,7 @@ Resources:
             Resource: "*"
             Action:
               - "ecr:BatchGetImage"
+              - "ecr:BatchDeleteImage"
 Outputs:
   PolicyArn:
     Value: !GetAtt CSPMManagedPolicy.PolicyArn
