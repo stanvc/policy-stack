@@ -1,4 +1,17 @@
-template-file-path: root-template.yaml
-parameters:
-  RoleName: cstan
-tags: {}
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  RoleName:
+    Type: String
+    Description: "Role name"
+Resources:
+  CSPMStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: "https://gitsync-cstan-test.s3.amazonaws.com/policy.yaml"
+  ReaderRoleStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: "https://gitsync-cstan-test.s3.amazonaws.com/reader-role.yaml"
+      Parameters:
+        RoleName: !Ref RoleName
+        ManagedPolicyArn: !GetAtt [CSPMStack, Outputs.PolicyArn]
